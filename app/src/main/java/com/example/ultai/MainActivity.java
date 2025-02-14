@@ -1,12 +1,12 @@
 package com.example.ultai;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.ultai.databinding.ActivityMainBinding;
@@ -15,46 +15,74 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Установка темы без Toolbar
         setTheme(R.style.ULTAI);
-
-        // Инициализация view binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Настройка BottomNavigationView
-        BottomNavigationView navView = findViewById(R.id.nav_view);  // Объявляем только один раз
+        BottomNavigationView navView = binding.navView;
 
-        // Конфигурация AppBar и NavController
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home,
-                R.id.navigation_dashboard,
-                R.id.navigation_news,
-                R.id.navigation_planer,
-                R.id.navigation_ultai
-        ).build();
+        // Получаем NavController
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
-
-        // Связываем NavController с BottomNavigationView
-        NavigationUI.setupWithNavController(navView, navController);
-
-        // Управление видимостью BottomNavigationView для определённых фрагментов
+        // Скрытие BottomNavigationView на определённых экранах
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            if (destination.getId() == R.id.registrationFragment
-                    || destination.getId() == R.id.signInFragment
-                    || destination.getId() == R.id.anketaFragment) {
+            int destId = destination.getId();
+
+            if (destId == R.id.registrationFragment
+                    || destId == R.id.signInFragment
+                    || destId == R.id.anketaFragment
+                    || destId == R.id.firstFragment) {
                 navView.setVisibility(View.GONE);
             } else {
                 navView.setVisibility(View.VISIBLE);
             }
+
+            // Обновляем иконки
+            updateBottomNavIcons(navView, destId);
         });
+
+        // Обработка нажатий в BottomNavigationView
+        navView.setOnItemSelectedListener(item -> {
+            navController.navigate(item.getItemId());
+            return true;
+        });
+    }
+
+    /**
+     * Метод для смены иконок в BottomNavigationView в зависимости от текущего экрана
+     */
+    private void updateBottomNavIcons(BottomNavigationView navView, int currentDestId) {
+        Menu menu = navView.getMenu();
+
+        // Устанавливаем стандартные (неактивные) иконки
+        menu.findItem(R.id.navigation_dashboard).setIcon(R.drawable.dashboard_nonactive);
+        menu.findItem(R.id.navigation_news).setIcon(R.drawable.news_nonactive);
+        menu.findItem(R.id.navigation_planer).setIcon(R.drawable.planner_nonactive);
+        menu.findItem(R.id.navigation_ultai).setIcon(R.drawable.chatultai_nonactive);
+
+        // Устанавливаем активную иконку для текущего экрана
+        if (currentDestId == R.id.navigation_dashboard) {
+            menu.findItem(R.id.navigation_dashboard).setIcon(R.drawable.dashboard_active);
+        } else if (currentDestId == R.id.navigation_news) {
+            menu.findItem(R.id.navigation_news).setIcon(R.drawable.news_active);
+        } else if (currentDestId == R.id.navigation_planer) {
+            menu.findItem(R.id.navigation_planer).setIcon(R.drawable.planner_active);
+        } else if (currentDestId == R.id.navigation_ultai) {
+            menu.findItem(R.id.navigation_ultai).setIcon(R.drawable.chatultai_active);
+        }
+
+        // Принудительное обновление меню, чтобы изменения сразу отобразились
+        navView.invalidate();
     }
 }

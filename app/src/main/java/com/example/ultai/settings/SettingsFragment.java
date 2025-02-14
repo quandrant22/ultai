@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,7 +44,19 @@ public class SettingsFragment extends Fragment {
         ImageButton imageButtonNext = view.findViewById(R.id.imageButton2);
         imageButtonNext.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_settingsFragment_to_homeFragment);
+            navController.navigate(R.id.action_settingsFragment_to_profileFragment);
         });
+        // Создаем callback для обработки нажатия кнопки "Назад"
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Возвращаемся на предыдущий фрагмент
+                Navigation.findNavController(view).popBackStack();
+            }
+        };
+
+        // Регистрируем callback
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
+
 }

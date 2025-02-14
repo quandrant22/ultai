@@ -136,7 +136,7 @@ public class AnketaFragment extends Fragment {
                         getActivity().runOnUiThread(() -> {
                             Toast.makeText(getContext(), "Данные успешно отправлены!", Toast.LENGTH_SHORT).show();
                             NavController navController = Navigation.findNavController(requireView());
-                            navController.navigate(R.id.action_anketaFragment_to_homeFragment);
+                            navController.navigate(R.id.action_anketaFragment_to_navigation_home);
                         });
                     }
                 }

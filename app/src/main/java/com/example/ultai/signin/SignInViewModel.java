@@ -11,7 +11,7 @@ public class SignInViewModel extends ViewModel {
 
     public SignInViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is profile fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

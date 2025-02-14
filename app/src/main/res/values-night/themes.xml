@@ -13,8 +13,11 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/beige</item> <!-- Цвет иконок в неактивном состоянии -->
-        <item name="colorControlActivated">#F14902</item>
+        <item name="colorControlActivated">@color/blue</item>
         <item name="colorOnTertiary">#F4B324</item>
 
+
     </style>
+
+
 </resources>

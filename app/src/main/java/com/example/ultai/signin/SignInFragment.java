@@ -28,7 +28,7 @@ public class SignInFragment extends Fragment {
         binding = FragmentSignInBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.signinButton;
+        final TextView textView = binding.textView9;
         signinViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
@@ -43,16 +43,18 @@ public class SignInFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button buttonNextRegistration = view.findViewById(R.id.registration);
-        buttonNextRegistration.setOnClickListener(v -> {
+        // Переход на экран регистрации через TextView
+        TextView textViewRegistration = view.findViewById(R.id.textView11);
+        textViewRegistration.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
             navController.navigate(R.id.action_signInFragment_to_registrationFragment);
         });
 
+        // Переход на главную страницу через кнопку входа
         Button buttonNextHome = view.findViewById(R.id.signin_button);
         buttonNextHome.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_signInFragment_to_homeFragment);
+            navController.navigate(R.id.action_signInFragment_to_navigation_home);
         });
     }
 }

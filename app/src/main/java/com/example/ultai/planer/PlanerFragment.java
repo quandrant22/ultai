@@ -4,14 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.ultai.R;
 import com.example.ultai.databinding.FragmentPlanerBinding;
-
 
 public class PlanerFragment extends Fragment {
     private FragmentPlanerBinding binding;
@@ -34,6 +36,12 @@ public class PlanerFragment extends Fragment {
         planerViewModel.getText().observe(getViewLifecycleOwner(), text -> {
             textView.setText(text);
         });
+
+        // Настройка перехода на HomeFragment
+        ImageButton backButton = binding.imageButton3; // ImageButton из макета
+        backButton.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_navigation_planer_to_navigation_home2)
+        );
 
         return root;
     }
