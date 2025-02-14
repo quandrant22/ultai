@@ -98,10 +98,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@color/dark_gray"
-        android:rotation="180"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_beige" />
+        app:srcCompat="@drawable/strelka_vahoda_besh_obl_1" />
 
     <TextView
         android:id="@+id/textView8"
@@ -112,6 +111,7 @@
         android:textColor="@color/blue"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

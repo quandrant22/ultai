@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateBottomNavIcons(BottomNavigationView navView, int currentDestId) {
         Menu menu = navView.getMenu();
 
-        // Устанавливаем стандартные (неактивные) иконки
+        // Устанавливаем стандартные (неактивные) иконкиx
         menu.findItem(R.id.navigation_dashboard).setIcon(R.drawable.dashboard_nonactive);
         menu.findItem(R.id.navigation_news).setIcon(R.drawable.news_nonactive);
         menu.findItem(R.id.navigation_planer).setIcon(R.drawable.planner_nonactive);
@@ -84,5 +85,34 @@ public class MainActivity extends AppCompatActivity {
 
         // Принудительное обновление меню, чтобы изменения сразу отобразились
         navView.invalidate();
+    }
+    @Override
+    public void onBackPressed() {
+        if (navController.getCurrentDestination() == null) {
+            super.onBackPressed();
+            return;
+        }
+
+        int currentId = navController.getCurrentDestination().getId();
+
+        if (currentId == R.id.navigation_home) {
+            // Если уже на homeFragment → закрываем приложение
+            finish();
+        } else if (currentId == R.id.navigation_dashboard ||
+                currentId == R.id.navigation_news ||
+                currentId == R.id.navigation_planer ||
+                currentId == R.id.navigation_ultai) {
+            // Если на dashboardFragment, newsFragment, plannerFragment или ultaiFragment → переходим на homeFragment без дублирования
+            navigateToHome();
+        } else {
+            // Если на другом экране, используем стандартное поведение кнопки "Назад"
+            super.onBackPressed();
+        }
+    }
+
+    private void navigateToHome() {
+        navController.navigate(R.id.navigation_home, null, new NavOptions.Builder()
+                .setPopUpTo(R.id.navigation_home, true) // Удаляем предыдущие фрагменты из стека
+                .build());
     }
 }
