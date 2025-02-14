@@ -21,21 +21,21 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signin_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:layout_above="@+id/textView12"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginBottom="30dp"
+            android:layout_alignStart="@+id/editTextTextEmailAddress2"
+            android:layout_alignEnd="@+id/editTextTextEmailAddress2"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/shriftovik_sk_concretica"
             android:gravity="center"
             android:text="Log In"
-            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/dark_gray"
-            android:textSize="40dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
             app:cornerRadius="15dp" />
 
         <EditText
@@ -45,32 +45,32 @@
             android:layout_below="@+id/textView10"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_rectangle"
             android:ems="10"
             android:fontFamily="@font/exo2_0_light"
             android:inputType="textEmailAddress"
-            android:radius="25dp"
             android:paddingVertical="5dp"
-            android:paddingLeft="10dp"  />
+            android:paddingLeft="10dp"
+            android:radius="25dp" />
 
         <EditText
             android:id="@+id/editTextTextPassword3"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_below="@+id/editTextTextEmailAddress2"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="35dp"
+            android:layout_alignStart="@+id/editTextTextEmailAddress2"
+            android:layout_alignEnd="@+id/editTextTextEmailAddress2"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
             android:background="@drawable/rounded_rectangle"
             android:ems="10"
+            android:inputType="textPassword"
             android:paddingVertical="5dp"
             android:paddingLeft="10dp"
-            android:inputType="textPassword"
             tools:ignore="MissingConstraints" />
 
         <ImageView
@@ -85,18 +85,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/mainlogo_white1" />
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/remember_me_checkbox"
             android:layout_width="wrap_content"
-            android:layout_height="23dp"
+            android:layout_height="20dp"
             android:layout_below="@+id/editTextTextPassword3"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
-            android:button="@drawable/custom_checkbox"
+            android:layout_alignStart="@+id/editTextTextEmailAddress2"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/red"
             android:paddingEnd="8dp"
             android:text="Remember Me"
-            android:textColor="@color/beige" />
+            android:textColor="@color/beige"
+            android:fontFamily="@font/exo2_0_light"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -112,7 +114,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-
             android:layout_marginStart="0dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="0dp"
@@ -122,7 +123,8 @@
             android:textAllCaps="false"
             android:textColor="@color/blue"
             android:textSize="40dp"
-            android:textStyle="bold" />
+            android:textStyle="normal"
+            android:letterSpacing="0.05"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -130,8 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView14"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
             android:fontFamily="@font/exo2_0_light"
             android:text="Create an Account"
             android:textColor="@color/blue"
@@ -143,22 +145,25 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView14"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="25dp"
             android:fontFamily="@font/exo2_0_light"
             android:text="Don’t have an account?"
-            android:textColor="@color/beige" />
+            android:textColor="@color/beige"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextTextPassword3"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
+            android:layout_alignEnd="@+id/editTextTextPassword3"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/exo2_0_light"
             android:text="Forgot password?"
-            android:textColor="@color/red" />
+            android:textColor="@color/red"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/textView14"
@@ -166,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/imageView8"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
             android:fontFamily="@font/exo2_0_light"
             android:gravity="center"
             android:text="or"
@@ -178,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imageView8"
             android:layout_alignBottom="@+id/imageView8"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/imageView8"
@@ -190,7 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="65dp"
             app:srcCompat="@drawable/facebook" />
 
         <ImageView
@@ -200,7 +205,7 @@
             android:layout_alignTop="@+id/imageView8"
             android:layout_alignBottom="@+id/imageView8"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="70dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="0dp"
             android:layout_toStartOf="@+id/imageView8"
             app:srcCompat="@drawable/google" />
