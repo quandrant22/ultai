@@ -7,116 +7,38 @@
     android:background="@color/dark_gray">
 
 
-    <View
-        android:id="@+id/rounded_rectangle"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/rounded_rectangle2"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:ignore="UnknownIdInLayout" />
-
-    <View
-        android:id="@+id/rounded_rectangle2"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/rounded_rectangle3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rounded_rectangle"
-        tools:ignore="UnknownIdInLayout" />
-
-    <View
-        android:id="@+id/rounded_rectangle3"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/rounded_rectangle4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rounded_rectangle2"
-        tools:ignore="MissingConstraints,UnknownIdInLayout" />
-
-    <View
-        android:id="@+id/rounded_rectangle4"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rounded_rectangle3"
-        tools:ignore="MissingConstraints,UnknownIdInLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="105dp"
-        android:layout_height="33dp"
-        android:background="@color/dark_gray"
-        android:text="Planner"
-        android:textColor="@color/dark_gray"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="817dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar3" />
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="51dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/dark_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/strelka_vahoda_besh_obl_1" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar3"
+        app:srcCompat="@drawable/account" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:fontFamily="@font/exo2_0_light"
-        android:text="Planner"
-        android:textColor="@color/blue"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3"
-        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
