@@ -1,16 +1,10 @@
 package com.example.ultai;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
@@ -53,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 navView.setVisibility(View.VISIBLE);
             }
-            updateBottomNavIcons(navView, destId);
         });
 
         // Обработка нажатий в BottomNavigationView
@@ -83,54 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    /**
-     * Метод для смены иконок и их цвета в BottomNavigationView
-     */
-    private void updateBottomNavIcons(BottomNavigationView navView, int currentDestId) {
-        Menu menu = navView.getMenu();
-
-        // Цвета
-        int activeColor = ContextCompat.getColor(this, R.color.blue);
-        int inactiveColor = ContextCompat.getColor(this, R.color.beige);
-
-        updateMenuItemIcon(menu.findItem(R.id.navigation_dashboard),
-                currentDestId == R.id.navigation_dashboard,
-                R.drawable.dashboard_active,
-                R.drawable.dashboard_nonactive,
-                activeColor, inactiveColor);
-
-        updateMenuItemIcon(menu.findItem(R.id.navigation_news),
-                currentDestId == R.id.navigation_news,
-                R.drawable.news_active,
-                R.drawable.news_nonactive,
-                activeColor, inactiveColor);
-
-        updateMenuItemIcon(menu.findItem(R.id.navigation_planer),
-                currentDestId == R.id.navigation_planer,
-                R.drawable.planner_active,
-                R.drawable.planner_nonactive,
-                activeColor, inactiveColor);
-
-        updateMenuItemIcon(menu.findItem(R.id.navigation_ultai),
-                currentDestId == R.id.navigation_ultai,
-                R.drawable.chatultai_active,
-                R.drawable.chatultai_nonactive,
-                activeColor, inactiveColor);
-
-        navView.invalidate(); // Принудительное обновление
-    }
-
-    /**
-     * Вспомогательный метод для изменения иконки и её цвета
-     */
-    private void updateMenuItemIcon(MenuItem item, boolean isActive, int activeIcon, int inactiveIcon, int activeColor, int inactiveColor) {
-        Drawable icon = ContextCompat.getDrawable(this, isActive ? activeIcon : inactiveIcon);
-        if (icon != null) {
-            icon.setColorFilter(new PorterDuffColorFilter(isActive ? activeColor : inactiveColor, PorterDuff.Mode.SRC_IN));
-            item.setIcon(icon);
-        }
     }
 
     private void navigateToHome() {

@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    id("com.android.application") version "8.8.1"
 }
 
 android {
@@ -38,19 +38,19 @@ dependencies {
     // AndroidX
     implementation(libs.appcompat.v170)
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.livedata.ktx)
-    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata) // Убрали kotlin-ktx
+    implementation(libs.lifecycle.viewmodel) // Убрали kotlin-ktx
     implementation(libs.preference)
 
     // Material Design
     implementation(libs.material.v1120)
 
     // Jetpack Navigation
-    implementation(libs.navigation.fragment.v285)
-    implementation(libs.navigation.ui.v285)
+    implementation(libs.navigation.fragment.v287) // Убрали kotlin-ktx
+    implementation(libs.navigation.ui.v287) // Убрали kotlin-ktx
 
     // Networking
-    implementation(libs.okhttp)
+    implementation(libs.okhttp.v4100)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
