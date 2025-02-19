@@ -64,23 +64,25 @@ public class MainActivity extends AppCompatActivity {
                 int currentId = navController.getCurrentDestination().getId();
                 if (currentId == R.id.navigation_home) {
                     finish(); // Закрытие приложения
-                } else if (currentId == R.id.navigation_dashboard ||
-                        currentId == R.id.navigation_news ||
-                        currentId == R.id.navigation_planer ||
-                        currentId == R.id.navigation_ultai) {
-                    navigateToHome();
                 } else {
-                    setEnabled(false);
-                    onBackPressed();
-                    setEnabled(true);
+                    // В любом другом случае мы будем переходить на HomeFragment
+                    navigateToHome();
                 }
             }
         });
     }
 
+    /**
+     * Перенаправляет пользователя на HomeFragment, очищая стек навигации.
+     */
     private void navigateToHome() {
+        // Удаляем все фрагменты до HomeFragment из стека
+        navController.popBackStack(R.id.navigation_home, false);
+
+        // Теперь навигация на HomeFragment с очисткой стека
         navController.navigate(R.id.navigation_home, null, new NavOptions.Builder()
-                .setPopUpTo(R.id.navigation_home, true)
+                .setPopUpTo(R.id.navigation_home, true) // Очистка стека до HomeFragment
+                .setLaunchSingleTop(true)  // Для предотвращения множества экземпляров
                 .build());
     }
 }

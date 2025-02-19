@@ -10,7 +10,7 @@ public class PlanerViewModel extends ViewModel {
 
     public PlanerViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is ultai fragment");
+        mText.setValue("Машины шишки");
     }
 
     public LiveData<String> getText() {

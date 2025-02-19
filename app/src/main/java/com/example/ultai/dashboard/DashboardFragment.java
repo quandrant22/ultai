@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -53,17 +52,7 @@ public class DashboardFragment extends Fragment {
                         "Navigation error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        // Обработка кнопки "Назад"
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                // Возвращаемся на предыдущий фрагмент
-                Navigation.findNavController(view).popBackStack();
-            }
-        };
 
-        // Регистрируем callback для обработки кнопки "Назад"
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
     @Override

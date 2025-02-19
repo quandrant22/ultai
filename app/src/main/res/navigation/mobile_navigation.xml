@@ -16,11 +16,13 @@
             android:id="@+id/action_registrationFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
+
+
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.ultai.home.HomeFragment"
         android:label="HomeFragment" >
-
 
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
@@ -29,17 +31,18 @@
             android:id="@+id/action_homeFragment_to_news"
             app:destination="@id/navigation_news" />
         <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard2"
+            android:id="@+id/action_navigation_home_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_ultai"
+            app:destination="@id/navigation_ultai" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_news"
+            app:destination="@id/navigation_news" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_planer2"
             app:destination="@id/navigation_planer" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_ultai2"
-            app:destination="@id/navigation_ultai" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_news2"
-            app:destination="@id/navigation_news" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
@@ -91,6 +94,9 @@
         <action
             android:id="@+id/action_navigation_planer_to_navigation_news2"
             app:destination="@id/navigation_news" />
+        <action
+            android:id="@+id/action_navigation_planer_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -147,11 +153,9 @@
             android:id="@+id/action_navigation_news_to_navigation_planer"
             app:destination="@id/navigation_planer" />
         <action
-            android:id="@+id/action_navigation_news_to_navigation_planer2"
-            app:destination="@id/navigation_planer" />
-        <action
-            android:id="@+id/action_navigation_news_to_navigation_home2"
+            android:id="@+id/action_navigation_news_to_navigation_home"
             app:destination="@id/navigation_home" />
+
     </fragment>
     <fragment
         android:id="@+id/firstFragment"

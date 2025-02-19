@@ -26,10 +26,4 @@
         android:icon="@drawable/news_nonactive"
         android:title="News" />
 
-
-
-
-
-
-
 </menu>

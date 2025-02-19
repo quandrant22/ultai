@@ -10,8 +10,12 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_planer"
-            app:destination="@id/navigation_planer" />
+            android:id="@+id/action_global_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+
+
         <action
             android:id="@+id/action_navigation_home_to_navigation_ultai"
             app:destination="@id/navigation_ultai" />
@@ -21,6 +25,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_planer"
+            app:destination="@id/navigation_planer" />
     </fragment>
 
     <fragment
@@ -67,14 +74,17 @@
         android:label="News"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_navigation_news_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
             android:id="@+id/action_navigation_news_to_navigation_ultai"
             app:destination="@id/navigation_ultai" />
         <action
             android:id="@+id/action_navigation_news_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_planer3"
+            app:destination="@id/navigation_planer" />
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

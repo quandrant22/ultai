@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -39,25 +38,9 @@ public class NewsFragment extends Fragment {
         // Навигация по нажатию на кнопку
         binding.imageButton5.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_navigation_news_to_navigation_home2);
+            navController.navigate(R.id.action_navigation_news_to_navigation_home);
         });
-        // Обработка кнопки "Назад"
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
-                new OnBackPressedCallback(true) {
-                    @Override
-                    public void handleOnBackPressed() {
-                        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
-                        // Если текущий фрагмент не является HomeFragment
-                        if (navController.getCurrentDestination().getId() != R.id.homeFragment) {
-                            // Переходим на HomeFragment и очищаем стек навигации
-                            navController.popBackStack(R.id.homeFragment, false);
-                        } else {
-                            // Если уже на HomeFragment, закрываем приложение
-                            requireActivity().finish();
-                        }
-                    }
-                });
     }
 
     @Override

@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.ultai.R;
@@ -29,18 +29,21 @@ public class PlanerFragment extends Fragment {
         binding = FragmentPlanerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Получаем TextView из binding
-        final TextView textView = binding.textView3;
+        // Получаем NavController
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
 
-        // Наблюдаем за LiveData и обновляем TextView
-        planerViewModel.getText().observe(getViewLifecycleOwner(), text -> {
-            textView.setText(text);
-        });
+        // Получаем TextView из binding и подписываемся на изменения LiveData
+        final TextView textView = binding.textView4;
+        planerViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        // Настройка перехода на HomeFragment
-        ImageButton backButton = binding.imageButton3; // ImageButton из макета
-        backButton.setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(R.id.action_navigation_planer_to_navigation_home2)
+        // Кнопка "Назад" — переход на HomeFragment
+        binding.imageButton2.setOnClickListener(v ->
+                navController.navigate(R.id.action_navigation_planer_to_navigation_home)
+        );
+
+        // Кнопка "Профиль" — переход на ProfileFragment
+        binding.imageButton7.setOnClickListener(v ->
+                navController.navigate(R.id.action_navigation_planer_to_profileFragment)
         );
 
         return root;

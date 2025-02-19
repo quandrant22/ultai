@@ -15,8 +15,12 @@
         <item name="colorControlNormal">@color/beige</item> <!-- Цвет иконок в неактивном состоянии -->
         <item name="colorControlActivated">@color/blue</item>
         <item name="colorOnTertiary">#F4B324</item>
-        
 
+    </style>
+
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_selector</item>
     </style>
 
 </resources>

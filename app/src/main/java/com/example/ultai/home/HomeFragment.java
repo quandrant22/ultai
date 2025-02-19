@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         // Переход на DashboardFragment
         View roundedRectangle = view.findViewById(R.id.rounded_rectangle);
         roundedRectangle.setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_navigation_dashboard2)
+                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_navigation_dashboard)
         );
 
         // Переход на PlanerFragment
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         // Переход на NewsFragment
         View roundedRectangle4 = view.findViewById(R.id.rounded_rectangle4);
         roundedRectangle4.setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_navigation_news2)
+                Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_navigation_news)
         );
 
         // Переход на ProfileFragment через ImageButton
