@@ -97,6 +97,9 @@
         <action
             android:id="@+id/action_navigation_planer_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_navigation_planer_to_faza1_stages"
+            app:destination="@id/faza1_stages" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -168,5 +171,12 @@
         <action
             android:id="@+id/action_firstFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/faza1_stages"
+        android:name="com.example.ultai.planer.stages.stage_1.Stage_1Fragment">
+        <action
+            android:id="@+id/action_faza1_stages_to_navigation_planer"
+            app:destination="@id/navigation_planer" />
     </fragment>
 </navigation>

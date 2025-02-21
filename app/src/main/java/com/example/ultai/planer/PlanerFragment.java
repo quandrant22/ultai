@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +19,7 @@ public class PlanerFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Используем ViewBinding
+        // Используем только один метод onCreateView с ViewBinding
         binding = FragmentPlanerBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -29,19 +28,22 @@ public class PlanerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Получаем NavController корректно
+        // Получаем NavController
         NavController navController = Navigation.findNavController(view);
 
         // Переход на HomeFragment
-        ImageButton backButton = binding.imageButton2;
-        backButton.setOnClickListener(v ->
+        binding.imageButton2.setOnClickListener(v ->
                 navController.navigate(R.id.action_navigation_planer_to_navigation_home)
         );
 
         // Переход на ProfileFragment через ImageButton
-        ImageButton imageButton7 = binding.imageButton7;
-        imageButton7.setOnClickListener(v ->
+        binding.imageButton7.setOnClickListener(v ->
                 navController.navigate(R.id.action_navigation_planer_to_profileFragment)
+        );
+
+        // Переход на Faza1Stages
+        binding.imageView22.setOnClickListener(v ->
+                navController.navigate(R.id.action_navigation_planer_to_faza1_stages)
         );
     }
 
