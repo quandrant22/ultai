@@ -60,9 +60,20 @@ dependencies {
     // Charts
     implementation(libs.mpandroidchart)
     implementation(libs.legacy.support.v4)
+    implementation(libs.constraintlayout.core)
+    implementation(libs.constraintlayout.compose.android)
+    implementation(libs.animation.core.android)
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+    implementation(libs.constraintlayout.core.v111)
 
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.junit.v121)
     androidTestImplementation(libs.espresso.core.v361)
+
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
+    implementation ("com.rometools:rome:1.16.0")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }

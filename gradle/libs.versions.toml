@@ -7,6 +7,7 @@ androidxNavigationUi = "2.8.5"
 androidxNavigationUiVersion = "2.8.7"
 appcompatVersion = "1.7.0"
 constraintlayout = "2.2.0"
+constraintlayoutCoreVersion = "1.1.1"
 espressoCoreVersion = "3.6.1"
 googleMaterial = "1.6.1"
 jakartaAnnotationApi = "2.1.1"
@@ -33,10 +34,14 @@ retrofit = "2.9.0"
 roomRuntime = "2.6.1"
 springBootStarterWeb = "3.1.4"
 springWeb = "6.0.12"
+constraintlayoutCore = "1.1.0"
+constraintlayoutComposeAndroid = "1.1.0"
+animationCoreAndroid = "1.7.8"
 
 [libraries]
 appcompat-v170 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+constraintlayout-core-v111 = { module = "androidx.constraintlayout:constraintlayout-core", version.ref = "constraintlayoutCoreVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 espresso-core-v361 = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
 jakarta-annotation-api = { module = "jakarta.annotation:jakarta.annotation-api", version.ref = "jakartaAnnotationApi" }
@@ -72,6 +77,9 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBootStarterWeb" }
 spring-web = { module = "org.springframework:spring-web", version.ref = "springWeb" }
+constraintlayout-core = { group = "androidx.constraintlayout", name = "constraintlayout-core", version.ref = "constraintlayoutCore" }
+constraintlayout-compose-android = { group = "androidx.constraintlayout", name = "constraintlayout-compose-android", version.ref = "constraintlayoutComposeAndroid" }
+animation-core-android = { group = "androidx.compose.animation", name = "animation-core-android", version.ref = "animationCoreAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

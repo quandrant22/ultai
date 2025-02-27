@@ -158,6 +158,9 @@
         <action
             android:id="@+id/action_navigation_news_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_news_to_profileFragment"
+            app:destination="@id/profileFragment" />
 
     </fragment>
     <fragment
@@ -178,5 +181,8 @@
         <action
             android:id="@+id/action_faza1_stages_to_navigation_planer"
             app:destination="@id/navigation_planer" />
+        <action
+            android:id="@+id/action_faza1_stages_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

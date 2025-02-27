@@ -10,7 +10,7 @@ public class NewsViewModel extends ViewModel {
 
     public NewsViewModel() {
         text = new MutableLiveData<>();
-        text.setValue("Это текст из NewsViewModel");
+        text.setValue("Просто блеск");
     }
 
     public LiveData<String> getText() {

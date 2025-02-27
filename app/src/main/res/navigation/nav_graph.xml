@@ -72,7 +72,7 @@
         android:id="@+id/navigation_news"
         android:name="com.example.ultai.news.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_news" >
+        tools:layout="@layout/fragment_news2" >
         <action
             android:id="@+id/action_navigation_news_to_navigation_ultai"
             app:destination="@id/navigation_ultai" />

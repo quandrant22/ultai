@@ -4,61 +4,116 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.activity.OnBackPressedCallback;
 
 import com.example.ultai.R;
-import com.example.ultai.databinding.FragmentStage1Binding;
 
 public class Stage_1Fragment extends Fragment {
 
-    private FragmentStage1Binding binding;
-    private NavController navController;
-    private Stage_1ViewModel stage1ViewModel;
-
+    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        // Инициализация ViewBinding
-        binding = FragmentStage1Binding.inflate(inflater, container, false);
-        return binding.getRoot();
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Инициализация макета
+        View view = inflater.inflate(R.layout.fragment_stage_1, container, false);
+
+        // Настройка слушателей для ImageView в горизонтальном скролле
+        setupImageClickListeners(view);
+
+        return view;
+    }
+
+    /**
+     * Настройка слушателей для ImageView в горизонтальном скролле
+     */
+    private void setupImageClickListeners(View view) {
+        // Этап 1
+        view.findViewById(R.id.stage_1).setOnClickListener(v -> switchContent(view, 0));
+
+        // Этап 2
+        view.findViewById(R.id.stage_2).setOnClickListener(v -> switchContent(view, 1));
+
+        // Этап 3
+        view.findViewById(R.id.stage_3).setOnClickListener(v -> switchContent(view, 2));
+
+        // Этап 4
+        view.findViewById(R.id.stage_4).setOnClickListener(v -> switchContent(view, 3));
+    }
+
+    /**
+     * Переключение содержимого вертикального скролла
+     *
+     * @param view   Корневой View фрагмента
+     * @param index Индекс выбранного элемента
+     */
+    private void switchContent(View view, int index) {
+        // Скрываем все вертикальные скроллы
+        hideAllScrollViews(view);
+
+        // Показываем нужный скролл по индексу
+        showScrollViewByIndex(view, index);
+    }
+
+    /**
+     * Скрытие всех вертикальных скроллов
+     *
+     * @param view Корневой View фрагмента
+     */
+    private void hideAllScrollViews(View view) {
+        View scroll1 = view.findViewById(R.id.scroll_content_1);
+        View scroll2 = view.findViewById(R.id.scroll_content_2);
+        View scroll3 = view.findViewById(R.id.scroll_content_3);
+        View scroll4 = view.findViewById(R.id.scroll_content_4);
+
+        if (scroll1 != null) scroll1.setVisibility(View.GONE);
+        if (scroll2 != null) scroll2.setVisibility(View.GONE);
+        if (scroll3 != null) scroll3.setVisibility(View.GONE);
+        if (scroll4 != null) scroll4.setVisibility(View.GONE);
+    }
+
+    /**
+     * Показ вертикального скролла по индексу
+     *
+     * @param view  Корневой View фрагмента
+     * @param index Индекс скролла
+     */
+    private void showScrollViewByIndex(View view, int index) {
+        switch (index) {
+            case 0:
+                view.findViewById(R.id.scroll_content_1).setVisibility(View.VISIBLE);
+                break;
+            case 1:
+                view.findViewById(R.id.scroll_content_2).setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                view.findViewById(R.id.scroll_content_3).setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                view.findViewById(R.id.scroll_content_4).setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Инициализация NavController
-        navController = Navigation.findNavController(view);
-
-        // Инициализация ViewModel и установка текста
-        stage1ViewModel = new ViewModelProvider(this).get(Stage_1ViewModel.class);
-        stage1ViewModel.getText().observe(getViewLifecycleOwner(), binding.textView4::setText);
-
-        // Переход на PlanerFragment по нажатию кнопки
-        binding.imageButton3.setOnClickListener(v ->
-                navController.navigate(R.id.action_faza1_stages_to_navigation_planer)
-        );
-
-        // Обработка системной кнопки "Назад" для возврата на PlanerFragment
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                navController.navigate(R.id.action_faza1_stages_to_navigation_planer);
-            }
+        // Находим кнопку и настраиваем переход на другой фрагмент
+        ImageButton imageButtonNext = view.findViewById(R.id.imageButton3);
+        imageButtonNext.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_faza1_stages_to_navigation_planer);
         });
-    }
+        ImageButton imageButtonSettings = view.findViewById(R.id.imageButton7); // Убедитесь, что у вас есть такой ID
+        imageButtonSettings.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_faza1_stages_to_profileFragment);
+        });
+}
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null; // Очищаем binding для предотвращения утечек памяти
-    }
 }
